@@ -168,14 +168,17 @@ namespace Lab4
 				//        connectedComponents++
 				//        explore the neighbors
 				//
+				ResetNodeColor();
+				
 				foreach(Node n in Nodes)
                 {
-					foreach(Node s in n.Neighbors)
+                    if (n.Color.Equals(Color.White))
                     {
-						s.Color = Color.Black;
+						DFS(n);
+						connectedComponents++;
                     }
                 }
-
+				ResetNodeColor();
 
 				return connectedComponents;
 			}
